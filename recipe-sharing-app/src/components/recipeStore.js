@@ -46,7 +46,24 @@ const useRecipeStore = create((set, get) => ({
       recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase())) ||
       recipe.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }
+  },
+  favorites: [],
+  recommendations: [],
+  addFavorite: (recipeId) => set((state) => ({
+    favorites: [...state.favorites, recipeId]
+  })),
+  removeFavorite: (recipeId) => set((state) => ({
+    favorites: state.favorites.filter(id => id !== recipeId)
+  })),
+  generateRecommendations: () => set((state) => {
+    // Simple recommendation based on favorite categories
+    const favoriteRecipes = state.recipes.filter(recipe => state.favorites.includes(recipe.id));
+    const favoriteCategories = [...new Set(favoriteRecipes.map(recipe => recipe.category))];
+    const recommended = state.recipes.filter(recipe =>
+      favoriteCategories.includes(recipe.category) && !state.favorites.includes(recipe.id)
+    );
+    return { recommendations: recommended.slice(0, 5) }; // Limit to 5 recommendations
+  })
 }));
 
 export default useRecipeStore;

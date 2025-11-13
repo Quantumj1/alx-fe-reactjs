@@ -4,6 +4,8 @@ import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 import useRecipeStore from './components/recipeStore';
 import './App.css'
 
@@ -19,15 +21,20 @@ function App() {
     <Router>
       <div className="App">
         <h1>Recipe Sharing App</h1>
+        <nav>
+          <Link to="/">Home</Link> | <Link to="/favorites">My Favorites</Link>
+        </nav>
         <SearchBar />
         <Routes>
           <Route path="/" element={
             <>
               <RecipeList />
               <AddRecipeForm />
+              <RecommendationsList />
             </>
           } />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
+          <Route path="/favorites" element={<FavoritesList />} />
         </Routes>
       </div>
     </Router>
