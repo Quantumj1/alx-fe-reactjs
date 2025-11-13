@@ -3,6 +3,7 @@ import useRecipeStore from './recipeStore';
 
 const EditRecipeForm = ({ recipe }) => {
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
+  const filterRecipes = useRecipeStore((state) => state.filterRecipes);
   const [title, setTitle] = useState(recipe.title);
   const [ingredients, setIngredients] = useState(recipe.ingredients.join(', '));
   const [instructions, setInstructions] = useState(recipe.instructions);
@@ -16,6 +17,7 @@ const EditRecipeForm = ({ recipe }) => {
       instructions,
       category
     });
+    filterRecipes(); // Update filtered recipes after editing
   };
 
   return (
