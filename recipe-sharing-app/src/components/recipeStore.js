@@ -18,8 +18,16 @@ const useRecipeStore = create((set, get) => ({
     }
   ],
   searchTerm: '',
+  filteredRecipes: [],
   setSearchTerm: (term) => set({ searchTerm: term }),
   setRecipes: (newRecipes) => set({ recipes: newRecipes }),
+  filterRecipes: () => set((state) => ({
+    filteredRecipes: state.recipes.filter(recipe =>
+      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
+      recipe.ingredients.some(ing => ing.toLowerCase().includes(state.searchTerm.toLowerCase())) ||
+      recipe.category.toLowerCase().includes(state.searchTerm.toLowerCase())
+    )
+  })),
   addRecipe: (recipe) => set((state) => ({
     recipes: [...state.recipes, { ...recipe, id: Date.now() }]
   })),

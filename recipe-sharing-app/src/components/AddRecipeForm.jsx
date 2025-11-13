@@ -8,6 +8,8 @@ const AddRecipeForm = () => {
   const [instructions, setInstructions] = useState('');
   const [category, setCategory] = useState('');
 
+  const filterRecipes = useRecipeStore((state) => state.filterRecipes);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && ingredients && instructions && category) {
@@ -17,6 +19,7 @@ const AddRecipeForm = () => {
         instructions,
         category
       });
+      filterRecipes(); // Update filtered recipes after adding
       setTitle('');
       setIngredients('');
       setInstructions('');

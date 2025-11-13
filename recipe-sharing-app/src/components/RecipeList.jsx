@@ -3,7 +3,7 @@ import useRecipeStore from './recipeStore';
 import DeleteRecipeButton from './DeleteRecipeButton';
 
 const RecipeList = () => {
-  const filteredRecipes = useRecipeStore((state) => state.getFilteredRecipes());
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
 
   return (
     <div>
