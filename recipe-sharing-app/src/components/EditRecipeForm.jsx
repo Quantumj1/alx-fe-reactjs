@@ -8,8 +8,8 @@ const EditRecipeForm = ({ recipe }) => {
   const [instructions, setInstructions] = useState(recipe.instructions);
   const [category, setCategory] = useState(recipe.category);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     updateRecipe(recipe.id, {
       title,
       ingredients: ingredients.split(',').map(ing => ing.trim()),
