@@ -1,0 +1,35 @@
+import { create } from 'zustand';
+
+const useRecipeStore = create((set, get) => ({
+  recipes: [
+    {
+      id: 1,
+      title: 'Spaghetti Carbonara',
+      ingredients: ['Spaghetti', 'Eggs', 'Pancetta', 'Parmesan', 'Black Pepper'],
+      instructions: 'Cook spaghetti. Fry pancetta. Mix eggs and cheese. Combine all.',
+      category: 'Italian'
+    },
+    {
+      id: 2,
+      title: 'Chicken Curry',
+      ingredients: ['Chicken', 'Curry Powder', 'Coconut Milk', 'Onion', 'Garlic'],
+      instructions: 'Sauté onion and garlic. Add chicken and curry. Pour coconut milk. Simmer.',
+      category: 'Indian'
+    }
+  ],
+  searchTerm: '',
+  setSearchTerm: (term) => set({ searchTerm: term }),
+  addRecipe: (recipe) => set((state) => ({
+    recipes: [...state.recipes, { ...recipe, id: Date.now() }]
+  })),
+  getFilteredRecipes: () => {
+    const { recipes, searchTerm } = get();
+    return recipes.filter(recipe =>
+      recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      recipe.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+}));
+
+export default useRecipeStore;
