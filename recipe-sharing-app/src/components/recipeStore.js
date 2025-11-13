@@ -19,6 +19,7 @@ const useRecipeStore = create((set, get) => ({
   ],
   searchTerm: '',
   setSearchTerm: (term) => set({ searchTerm: term }),
+  setRecipes: (newRecipes) => set({ recipes: newRecipes }),
   addRecipe: (recipe) => set((state) => ({
     recipes: [...state.recipes, { ...recipe, id: Date.now() }]
   })),
