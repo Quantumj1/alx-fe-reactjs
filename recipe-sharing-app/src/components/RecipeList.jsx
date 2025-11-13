@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import useRecipeStore from './recipeStore';
+import DeleteRecipeButton from './DeleteRecipeButton';
 
 const RecipeList = () => {
   const filteredRecipes = useRecipeStore((state) => state.getFilteredRecipes());
@@ -16,6 +18,8 @@ const RecipeList = () => {
               <p><strong>Category:</strong> {recipe.category}</p>
               <p><strong>Ingredients:</strong> {recipe.ingredients.join(', ')}</p>
               <p><strong>Instructions:</strong> {recipe.instructions}</p>
+              <Link to={`/recipe/${recipe.id}`}>View Details</Link>
+              <DeleteRecipeButton recipeId={recipe.id} />
             </li>
           ))}
         </ul>
