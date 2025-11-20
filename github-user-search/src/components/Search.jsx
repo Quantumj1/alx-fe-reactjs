@@ -55,7 +55,6 @@ const Search = () => {
         setUser(data);
       }
     } catch (error) {
-      console.error(error);
       setError(true);
     } finally {
       setLoading(false);
@@ -74,7 +73,6 @@ const Search = () => {
         await fetchUserDetails(newUsers);
       }
     } catch (error) {
-      console.error(error);
       setError(true);
     } finally {
       setLoadingMore(false);
