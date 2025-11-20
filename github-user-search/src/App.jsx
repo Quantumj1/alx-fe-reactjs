@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import WelcomeMessage from './components/WelcomeMessage';
 import Search from './components/Search';
 import UserProfile from './components/UserProfile';
+import './App.css'
+
 
 function App() {
   return (
