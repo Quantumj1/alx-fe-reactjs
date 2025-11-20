@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WelcomeMessage from './components/WelcomeMessage';
-import MainContent from './components/MainContent';
+import Search from './components/Search';
 import UserProfile from './components/UserProfile';
 
 function App() {
