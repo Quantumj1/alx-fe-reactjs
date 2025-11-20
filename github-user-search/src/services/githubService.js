@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://api.github.com';
 const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
+const SEARCH_USERS_URL = 'https://api.github.com/search/users?q';
 
 export const fetchUserData = async (username) => {
   try {
