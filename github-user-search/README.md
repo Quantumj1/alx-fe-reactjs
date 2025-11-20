@@ -1,73 +1,165 @@
-# React + TypeScript + Vite
+# GitHub User Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive React application for searching and exploring GitHub users and their profiles. Built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Search**: Search for GitHub users by username
+- **Advanced Search**: Filter users by location and minimum repository count
+- **User Profiles**: View detailed user information including location, repository count, and profile links
+- **Pagination**: Load more search results with pagination support
+- **Responsive Design**: Mobile-friendly interface using Tailwind CSS
+- **Real-time API Integration**: Fetches data from GitHub's public API
+- **Error Handling**: Graceful error handling for API failures and invalid searches
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: React 19.2.0
+- **Build Tool**: Vite 7.2.4
+- **Styling**: Tailwind CSS 3.4.4
+- **Routing**: React Router DOM 7.9.6
+- **HTTP Client**: Axios 1.13.2
+- **Language**: JavaScript (with TypeScript configuration)
+- **Development Tools**: ESLint, PostCSS, Autoprefixer
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd github-user-search
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+4. **Open your browser** and navigate to `http://localhost:5174`
+
+## Project Structure
+
+```
+github-user-search/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── assets/
+│   │   └── react.svg
+│   ├── components/
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── Search.jsx
+│   │   ├── UserProfile.jsx
+│   │   └── WelcomeMessage.jsx
+│   ├── services/
+│   │   ├── githubApi.js
+│   │   └── githubService.js
+│   ├── App.jsx
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── App.css
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Basic Search
+1. Navigate to the search page (`/search`)
+2. Enter a GitHub username in the search field
+3. Click "Search" to find the user
+4. View the user's profile information and GitHub link
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Advanced Search
+1. Use the location field to filter users by their location
+2. Set a minimum repository count to find users with many repositories
+3. Combine username, location, and repository filters for precise searches
+
+### Navigation
+- **Home (/)**: Welcome page with project description
+- **Search (/search)**: User search interface
+- **User Profile (/user/:username)**: Individual user profile pages
+
+## API Integration
+
+The application integrates with GitHub's REST API:
+
+- **User Search**: `GET /search/users` - Search for users with query parameters
+- **User Details**: `GET /users/{username}` - Fetch detailed user information
+
+### Rate Limiting
+GitHub API has rate limits for unauthenticated requests (60 requests per hour). For production use, consider implementing authentication with a personal access token.
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+### Code Quality
+
+The project uses ESLint for code linting with React-specific rules. TypeScript configuration is available for type checking.
+
+### Styling
+
+Tailwind CSS is used for styling with a custom configuration. Utility classes are applied directly in JSX for rapid development.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow React best practices and hooks guidelines
+- Use meaningful component and variable names
+- Add comments for complex logic
+- Ensure responsive design across devices
+- Test API error scenarios
+
+## Environment Variables
+
+Create a `.env` file in the root directory for environment-specific configurations:
+
 ```
+VITE_GITHUB_TOKEN=your_github_personal_access_token
+```
+
+Note: The `.env` file is included in `.gitignore` to prevent committing sensitive information.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- GitHub API for providing user data
+- React team for the excellent framework
+- Tailwind CSS for the utility-first CSS framework
+- Vite for the fast build tool
+
+---
+
+Built with ❤️ using React and Vite.
