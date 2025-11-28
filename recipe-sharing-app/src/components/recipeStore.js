@@ -18,7 +18,22 @@ const useRecipeStore = create((set, get) => ({
     }
   ],
   searchTerm: '',
-  filteredRecipes: [],
+  filteredRecipes: [
+    {
+      id: 1,
+      title: 'Spaghetti Carbonara',
+      ingredients: ['Spaghetti', 'Eggs', 'Pancetta', 'Parmesan', 'Black Pepper'],
+      instructions: 'Cook spaghetti. Fry pancetta. Mix eggs and cheese. Combine all.',
+      category: 'Italian'
+    },
+    {
+      id: 2,
+      title: 'Chicken Curry',
+      ingredients: ['Chicken', 'Curry Powder', 'Coconut Milk', 'Onion', 'Garlic'],
+      instructions: 'Sauté onion and garlic. Add chicken and curry. Pour coconut milk. Simmer.',
+      category: 'Indian'
+    }
+  ],
   setSearchTerm: (term) => set({ searchTerm: term }),
   setRecipes: (newRecipes) => set({ recipes: newRecipes }),
   filterRecipes: () => set((state) => ({

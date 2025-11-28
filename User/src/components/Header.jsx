@@ -5,7 +5,7 @@ export default function Header() {
     <div class="bg-pink-200 shadow sm:rounded-lg max-w-md mx-auto center place-items-center m-50 p-5">
     <header>
       <div class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4" >
-        <img class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0" src="/img/erin-lindford.jpg" alt="" />
+        <img class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0" src="/src/assets/react.svg" alt="" />
         <div class="space-y-2 text-center sm:text-left">
           <div class="space-y-0.5">
             <p class="text-lg font-semibold text-black " >Erin Lindford</p>

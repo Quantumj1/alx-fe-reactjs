@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
@@ -7,7 +7,7 @@ import RecipeDetails from './components/RecipeDetails';
 import FavoritesList from './components/FavoritesList';
 import RecommendationsList from './components/RecommendationsList';
 import useRecipeStore from './components/recipeStore';
-import './App.css'
+import './index.css'
 
 function App() {
   const filterRecipes = useRecipeStore((state) => state.filterRecipes);

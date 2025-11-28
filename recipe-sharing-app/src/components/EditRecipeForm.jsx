@@ -21,7 +21,7 @@ const EditRecipeForm = ({ recipe }) => {
   };
 
   return (
-    <div>
+    <div class="edit-recipe-form mb-6 p-4 border rounded">
       <h2>Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div>

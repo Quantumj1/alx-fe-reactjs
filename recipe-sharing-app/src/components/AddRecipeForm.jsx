@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useRecipeStore from './recipeStore';
 
-const AddRecipeForm = () => {
+export default function AddRecipeForm  () {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -28,7 +28,7 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <div>
+    <div class="add-recipe-form mb-6 p-4 border rounded border-current place-content-center">
       <h2>Add New Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -71,5 +71,3 @@ const AddRecipeForm = () => {
     </div>
   );
 };
-
-export default AddRecipeForm;

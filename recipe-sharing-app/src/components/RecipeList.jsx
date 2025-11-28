@@ -19,7 +19,7 @@ const RecipeList = () => {
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
 
   return (
-    <div>
+    <div class='recipe-list mb-6 '>
       <h2>Recipes</h2>
       {filteredRecipes.length === 0 ? (
         <p>No recipes found.</p>
