@@ -16,7 +16,7 @@ export default function RecipeList() {
         {recipes.length === 0 ? (
           <p>Loading recipes...</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hover:scale-105 transition-transform">
             {recipes.map((recipe) => (
               <div key={recipe.id} className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-semibold mb-2">{recipe.id}</h3>
