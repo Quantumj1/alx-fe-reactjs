@@ -3,7 +3,28 @@ import { Link } from 'react-router-dom';
 import recipeData from '../data.json'; // place data.json next to the component
 
 export default function HomePage() {
-  const [recipes] = useState(recipeData);
+  const [recipes, setRecipes] = useState(() => {
+    try {
+      const raw = localStorage.getItem('recipes');
+      return raw ? JSON.parse(raw) : recipeData;
+    } catch {
+      return recipeData;
+    }
+  });
+
+  useEffect(() => {
+    // Subscribe to storage changes from other tabs/windows
+    const onStorage = () => {
+      try {
+        const raw = localStorage.getItem('recipes');
+        if (raw) setRecipes(JSON.parse(raw));
+      } catch {
+        // ignore
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   useEffect(() => {
     // This effect could be used to fetch data from an API if needed
@@ -13,6 +34,14 @@ export default function HomePage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-6xl p-6">
+        <div className="flex justify-end mb-4">
+          <Link
+            to="/add-recipe"
+            className="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
+          >
+            Add Recipe
+          </Link>
+        </div>
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Recipe List</h2>
         {recipes.length === 0 ? (
           <p>Loading recipes...</p>

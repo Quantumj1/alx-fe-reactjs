@@ -4,9 +4,17 @@ import React, { useEffect } from 'react';
 
 export default function RecipeDetail() {
   const { id } = useParams();
-  const recipe = recipeData.find(r => r.id === parseInt(id));
+  let recipes = recipeData;
+  try {
+    const raw = localStorage.getItem('recipes');
+    if (raw) recipes = JSON.parse(raw);
+  } catch {
+    // ignore
+  }
 
-useEffect(() => {
+  const recipe = recipes.find(r => r.id === parseInt(id));
+
+  useEffect(() => {
     // This effect could be used to fetch data from an API if needed
   }, []);
 
@@ -29,7 +37,7 @@ useEffect(() => {
         </ul>
         
         <h2 className="text-2xl font-semibold mb-4">Cooking Instructions</h2>
-        <p className="text-gray-700">{recipe.instructions}</p>
+        <p className="text-gray-700">{recipe.instructions || recipe.preparationsteps || (recipe.steps && recipe.steps.join('\n'))}</p>
       </div>
     </div>
   );
