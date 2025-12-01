@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import recipeData from '../data.json'; // place data.json next to the component
 
 export default function RecipeList() {
   const [recipes] = useState(recipeData);
 
-  // No effect needed — data is available synchronously from the imported JSON
+  useEffect(() => {
+    // This effect could be used to fetch data from an API if needed
+  }, []);
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
