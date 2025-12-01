@@ -3,30 +3,40 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["200g spaghetti", "100g pancetta", "2 eggs", "50g Parmesan cheese", "Black pepper"],
+    "instructions": "Cook spaghetti in salted boiling water. Fry pancetta until crispy. Whisk eggs with cheese. Drain pasta, mix with pancetta, then add egg mixture off heat. Season with pepper."
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["500g chicken breast", "1 cup yogurt", "2 tbsp tikka masala spice", "1 onion", "2 tomatoes", "1 cup cream"],
+    "instructions": "Marinate chicken in yogurt and spices. Grill or bake chicken. Sauté onion and tomatoes, add spices, then chicken and cream. Simmer until cooked."
   },
   {
     "id": 3,
     "title": "Vegetable Stir Fry",
     "summary": "A quick and healthy mix of fresh vegetables sautéed in a savory sauce.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["1 bell pepper", "1 carrot", "100g broccoli", "2 tbsp soy sauce", "1 tbsp oil", "Garlic"],
+    "instructions": "Chop vegetables. Heat oil, add garlic, then vegetables. Stir fry for 5-7 minutes. Add soy sauce and serve."
   },
-    {
-        "id": 4,
-        "title": "Beef Tacos",
-        "summary": "Crispy taco shells filled with seasoned ground beef, lettuce, cheese, and salsa.",
-        "image": "https://via.placeholder.com/150"
-    },
-    {
-        "id": 5,
-        "title": "Caesar Salad",
-        "summary": "A fresh salad with romaine lettuce, croutons, Parmesan cheese, and Caesar dressing.",
-        "image": "https://via.placeholder.com/150"
-    }
+  {
+    "id": 4,
+    "title": "Beef Tacos",
+    "summary": "Crispy taco shells filled with seasoned ground beef, lettuce, cheese, and salsa.",
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["500g ground beef", "1 packet taco seasoning", "8 taco shells", "Lettuce", "Cheese", "Salsa"],
+    "instructions": "Cook beef with seasoning. Fill taco shells with beef, lettuce, cheese, and salsa."
+  },
+  {
+    "id": 5,
+    "title": "Caesar Salad",
+    "summary": "A fresh salad with romaine lettuce, croutons, Parmesan cheese, and Caesar dressing.",
+    "image": "https://via.placeholder.com/150",
+    "ingredients": ["Romaine lettuce", "Croutons", "Parmesan cheese", "Caesar dressing"],
+    "instructions": "Toss lettuce with dressing, add croutons and cheese."
+  }
 ]

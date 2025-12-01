@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import recipeData from '../data.json'; // place data.json next to the component
 
-export default function RecipeList() {
+export default function HomePage() {
   const [recipes] = useState(recipeData);
 
   useEffect(() => {
@@ -18,16 +19,13 @@ export default function RecipeList() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hover:scale-105 transition-transform sm:mt-10 md:mt-16 lg:mt-20">
             {recipes.map((recipe) => (
-              <div key={recipe.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow sm:p-4 md:p-6 lg:p-8">
-                <h3 className="text-xl font-semibold mb-2">{recipe.id}</h3>
-                <p className="text-gray-600 mb-4">{recipe.title}</p>
-                <p className="text-gray-600 mb-4">{recipe.summary}</p>
-                <p className="self-center">{recipe.image}</p>
-                <ul className="list-disc list-inside">
-                  {recipe.ingredients &&
-                    recipe.ingredients.map((ing, i) => <li key={i}>{ing}</li>)}
-                </ul>
-              </div>
+              <Link key={recipe.id} to={`/recipe/${recipe.id}`} className="block">
+                <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow sm:p-4 md:p-6 lg:p-8 cursor-pointer">
+                  <h3 className="text-xl font-semibold mb-2">{recipe.title}</h3>
+                  <p className="text-gray-600 mb-4">{recipe.summary}</p>
+                  <img src={recipe.image} alt={recipe.title} className="w-full h-32 object-cover rounded mb-4" />
+                </div>
+              </Link>
             ))}
           </div>
         )}
