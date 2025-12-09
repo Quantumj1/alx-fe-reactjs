@@ -23,4 +23,33 @@ describe('Todo App', () => {
 
 		expect(screen.getByText(/Test adding todo/i)).toBeInTheDocument()
 	})
+
+		test('toggles a todo completed state when clicked', () => {
+			render(<App />)
+
+			const todo = screen.getByText(/Buy groceries/i)
+			// initial state: not completed -> no line-through
+			expect(todo).toHaveStyle('text-decoration: none')
+
+			// click to toggle completed
+			fireEvent.click(todo)
+			expect(todo).toHaveStyle('text-decoration: line-through')
+
+			// click again to un-toggle
+			fireEvent.click(todo)
+			expect(todo).toHaveStyle('text-decoration: none')
+		})
+
+		test('deletes a todo when delete button is clicked', () => {
+			render(<App />)
+
+			const toDelete = screen.getByText(/Read a book/i)
+			// find the corresponding Delete button; buttons have text 'Delete'
+			const deleteButtons = screen.getAllByRole('button', { name: /delete/i })
+			// assume there is a delete button for each todo; find button next to the toDelete item
+			// simple approach: click the last delete button (matches 'Read a book' position)
+			fireEvent.click(deleteButtons[deleteButtons.length - 1])
+
+			expect(screen.queryByText(/Read a book/i)).not.toBeInTheDocument()
+		})
 })
