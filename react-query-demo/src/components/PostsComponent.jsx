@@ -25,7 +25,7 @@ function PostsComponent() {
   });
 
   return (
-    <div style={{ maxWidth: 900, margin: '24px auto', padding: 16 }}>
+    <div style={{ maxWidth: 900, margin: ' auto', padding: 'auto' , fontFamily: 'Arial, sans-serif', alignContent: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <h1 style={{ margin: 0 }}>Posts</h1>
         <div>
@@ -50,10 +50,10 @@ function PostsComponent() {
 
       {data && (
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          {data.slice(0, 20).map((post) => (
+          {data.slice(0, 21).map((post) => (
             <li key={post.id} style={{ border: '1px solid #e5e7eb', borderRadius: 6, padding: 12, marginBottom: 10 }}>
               <h3 style={{ margin: '0 0 8px' }}>{post.title}</h3>
-              <p style={{ margin: 0, color: '#374151' }}>{post.body}</p>
+              <p style={{ margin: 0, color: '#0f5cd8ff' }}>{post.body}</p>
             </li>
           ))}
         </ul>
