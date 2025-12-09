@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, Routes, Route } from 'react-router-dom';
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
 
 export default function Profile() {
   return (
@@ -11,6 +13,12 @@ export default function Profile() {
       </nav>
       <div style={{ borderTop: '1px solid #ddd', marginTop: 12 }}>
         <Outlet />
+        {/* Inline fallback routes so Profile can work standalone */}
+        <Routes>
+          <Route index element={<ProfileDetails />} />
+          <Route path="details" element={<ProfileDetails />} />
+          <Route path="settings" element={<ProfileSettings />} />
+        </Routes>
       </div>
     </div>
   );
