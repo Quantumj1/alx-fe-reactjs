@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
 function RegistrationForm() {
-
+// State variables for form fields
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState({})
-
+// Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         const newErrors = {};
@@ -19,7 +19,7 @@ function RegistrationForm() {
         }
     };
 
-
+// Render the registration form
     return (
         <form className="registration-form" onSubmit={handleSubmit}>
             <h2>Register</h2>
