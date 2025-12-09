@@ -20,6 +20,7 @@ function PostsComponent() {
     queryFn: fetchPosts,
     staleTime: 1000 * 60, // 1 minute
     cacheTime: 1000 * 60 * 5, // 5 minutes
+  keepPreviousData: true,
     refetchOnWindowFocus: false,
   });
 
