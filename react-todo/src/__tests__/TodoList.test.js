@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, screen, fireEvent, describe, test, expect } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import App from '../App'
 
 describe('Todo App', () => {
@@ -40,16 +41,13 @@ describe('Todo App', () => {
 			expect(todo).toHaveStyle('text-decoration: none')
 		})
 
-		test('deletes a todo when delete button is clicked', () => {
-			render(<App />)
+	test('deletes a todo when delete button is clicked', () => {
+		render(<App />)
 
-			const toDelete = screen.getByText(/Read a book/i)
-			// find the corresponding Delete button; buttons have text 'Delete'
-			const deleteButtons = screen.getAllByRole('button', { name: /delete/i })
-			// assume there is a delete button for each todo; find button next to the toDelete item
-			// simple approach: click the last delete button (matches 'Read a book' position)
-			fireEvent.click(deleteButtons[deleteButtons.length - 1])
+		// find all delete buttons and click the last one (initial list places 'Read a book' last)
+		const deleteButtons = screen.getAllByRole('button', { name: /delete/i })
+		fireEvent.click(deleteButtons[deleteButtons.length - 1])
 
-			expect(screen.queryByText(/Read a book/i)).not.toBeInTheDocument()
-		})
+		expect(screen.queryByText(/Read a book/i)).not.toBeInTheDocument()
+	})
 })
