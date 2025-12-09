@@ -8,6 +8,7 @@ import PostDetail from './components/PostDetail';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
 import { AuthProvider } from './auth/AuthProvider';
+import BlogPost from './components/BlogPost';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           </Route>
           <Route path="/posts" element={<PostsList />} />
           <Route path="/posts/:postId" element={<PostDetail />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
