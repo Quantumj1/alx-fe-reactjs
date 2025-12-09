@@ -19,6 +19,7 @@ function RegistrationForm() {
         }
     };
 
+
     return (
         <form className="registration-form" onSubmit={handleSubmit}>
             <h2>Register</h2>
